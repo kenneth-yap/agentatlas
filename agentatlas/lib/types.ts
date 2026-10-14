@@ -1,6 +1,14 @@
 export type ControlFlow = "linear" | "conditional" | "parallel" | "emergent";
-export type LoopType = "none" | "fixed" | "reactive" | "iterative" | "bfs";
-export type MemoryType = "none" | "message_history" | "faiss+neo4j" | "neo4j" | "grid";
+export type LoopType = "none" | "fixed" | "reactive" | "iterative" | "bfs" | "mcts";
+export type MemoryType =
+  | "none"
+  | "message_history"
+  | "faiss+neo4j"
+  | "neo4j"
+  | "grid"
+  | "vector"          // FAISS store: retrieval corpus, lessons, skills, workflows
+  | "tiered"          // MemGPT: bounded context + archival vector store
+  | "networkx";       // in-process knowledge graph (GraphRAG)
 export type NodeType =
   | "llm"
   | "rule"
@@ -18,6 +26,8 @@ export type Paradigm =
   | "learning"
   | "mas"
   | "emergent";
+
+export type Part = 1 | 2 | 3 | 4 | 5 | 6;
 
 export interface FlowNode {
   id: string;
@@ -82,7 +92,7 @@ export interface Architecture {
   id: string;
   number: number;
   name: string;
-  part: 1 | 2 | 3 | 4 | 5;
+  part: Part;
   tagline: string;
   controlFlow: ControlFlow;
   loopType: LoopType;
@@ -108,21 +118,26 @@ export interface Architecture {
   color: string;
 }
 
-export const PART_LABELS: Record<number, string> = {
+export const PART_LABELS: Record<Part, string> = {
   1: "Foundational Single-Agent",
   2: "Multi-Agent Collaboration",
   3: "Advanced Memory & Reasoning",
   4: "Safety & Reliability",
   5: "Learning & Adaptation",
+  6: "Retrieval-Augmented Generation",
 };
 
-export const PART_COLORS: Record<number, string> = {
+export const PART_COLORS: Record<Part, string> = {
   1: "#6366f1",
   2: "#10b981",
   3: "#f59e0b",
   4: "#ef4444",
   5: "#8b5cf6",
+  6: "#0ea5e9",
 };
+
+// Single source of truth for iterating parts in the UI (home page, filters).
+export const PARTS = Object.keys(PART_LABELS).map(Number) as Part[];
 
 export const NODE_TYPE_LABELS: Record<NodeType, string> = {
   llm:        "LLM",

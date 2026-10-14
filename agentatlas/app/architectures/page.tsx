@@ -2,10 +2,9 @@
 import { useState } from "react";
 import { architectures } from "@/lib/architectures";
 import ArchitectureCard from "@/components/ArchitectureCard";
-import { PART_LABELS } from "@/lib/types";
+import { PARTS } from "@/lib/types";
 import Link from "next/link";
 
-const PARTS = [1, 2, 3, 4, 5] as const;
 const CONTROL_FLOWS = ["linear", "conditional", "parallel", "emergent"] as const;
 
 export default function ArchitecturesPage() {

@@ -20,6 +20,7 @@ const LOOP_LABELS: Record<string, string> = {
   reactive: "Reactive loop",
   iterative: "Iterative",
   bfs: "BFS search",
+  mcts: "Tree search (MCTS)",
 };
 
 export default function ArchitectureCard({ arch }: Props) {

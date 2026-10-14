@@ -2,7 +2,7 @@
 
 ![made-with-Python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg) ![made-with-Jupyter](https://img.shields.io/badge/Made%20with-Jupyter-f97c2c.svg) ![LangChain](https://img.shields.io/badge/LangChain-b084f3.svg) ![LangGraph](https://img.shields.io/badge/LangGraph-20232a.svg) ![Educational](https://img.shields.io/badge/Purpose-Educational-4caf50.svg) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Welcome to a comprehensive, hands-on masterclass in **modern AI agent design**. This repository contains detailed implementations of **17+ state-of-the-art agentic architectures**, built with LangChain and LangGraph. It is designed to be a living textbook, bridging the gap between theoretical concepts and practical, production-ready code.
+Welcome to a comprehensive, hands-on masterclass in **modern AI agent design**. This repository contains detailed implementations of **17 agentic architectures** as notebooks, and the interactive [AgentAtlas](./agentatlas) site covers all **35** (notebooks 18–35 live in [all-agentic-architectures](https://github.com/kenneth-yap/all-agentic-architectures)), built with LangChain and LangGraph. It is designed to be a living textbook, bridging the gap between theoretical concepts and practical, production-ready code.
 
 ## 📖 Why This Repository?
 
@@ -39,6 +39,24 @@ This collection covers the full spectrum of modern agentic design, from single-a
 | **15** | **RLHF (Self-Improvement)** | An agent's output is critiqued by an "editor" agent, and the feedback is used to iteratively revise the work. High-quality outputs are saved to improve future performance. | High-Quality Content Generation, Continual Learning | [Christiano et al., 2017](https://arxiv.org/abs/1706.03741) | [15_RLHF.ipynb](./15_RLHF.ipynb) |
 | **16** | **Cellular Automata** | A system of many simple, decentralized grid-based agents whose local interactions produce complex, emergent global behavior like optimal pathfinding. | Spatial Reasoning, Logistics, Complex System Simulation | von Neumann, 1966 | [16_cellular_automata.ipynb](./16_cellular_automata.ipynb) |
 | **17** | **Reflexive Metacognitive** | An agent with a "self-model" that reasons about its own capabilities and limitations, choosing to act, use a tool, or escalate to a human to ensure safety. | High-Stakes Advisory (Medical, Legal, Finance) | [Flavell, 1979](https://doi.org/10.1037/0003-066X.34.10.906) | [17_reflexive_metacognitive.ipynb](./17_reflexive_metacognitive.ipynb) |
+| **18** | **Reflexion** | Turns each failure into a written lesson stored in episodic memory, recalled on similar future tasks. | Constrained Generation, Repeated Task Families | [Shinn et al., 2023](https://arxiv.org/abs/2303.11366) | [18_reflexion.ipynb](https://github.com/kenneth-yap/all-agentic-architectures/blob/main/notebooks/18_reflexion.ipynb) |
+| **19** | **Self-Discover** | Selects and adapts atomic reasoning modules into a custom plan, then follows it. | Logic Puzzles, Structured Reasoning | [Zhou et al., 2024](https://arxiv.org/abs/2402.03620) | [19_self_discover.ipynb](https://github.com/kenneth-yap/all-agentic-architectures/blob/main/notebooks/19_self_discover.ipynb) |
+| **20** | **Chain-of-Verification** | Plans fact-check questions about its draft, answers them blind, then revises. | Hallucination Reduction, Factual Lists | [Dhuliawala et al., 2024](https://arxiv.org/abs/2309.11495) | [20_chain_of_verification.ipynb](https://github.com/kenneth-yap/all-agentic-architectures/blob/main/notebooks/20_chain_of_verification.ipynb) |
+| **21** | **Self-Consistency** | Samples N reasoning paths and majority-votes the answer in Python. | Math & Logic Q&A, Confidence Estimation | [Wang et al., 2023](https://arxiv.org/abs/2203.11171) | [21_self_consistency.ipynb](https://github.com/kenneth-yap/all-agentic-architectures/blob/main/notebooks/21_self_consistency.ipynb) |
+| **22** | **LATS** | Monte Carlo tree search (UCB1 + value backup) over LLM-proposed thoughts. | Search-Heavy Puzzles, Planning | [Zhou et al., 2024](https://arxiv.org/abs/2310.04406) | [22_lats.ipynb](https://github.com/kenneth-yap/all-agentic-architectures/blob/main/notebooks/22_lats.ipynb) |
+| **23** | **Agentic RAG** | The agent decides when and what to retrieve, possibly several times. | Mixed Q&A over a Knowledge Base | Composite — [Lewis et al., 2020](https://arxiv.org/abs/2005.11401) | [23_agentic_rag.ipynb](https://github.com/kenneth-yap/all-agentic-architectures/blob/main/notebooks/23_agentic_rag.ipynb) |
+| **24** | **Corrective RAG** | Grades retrieved docs and falls back to web search when they're poor. | Corpora with Coverage Gaps | [Yan et al., 2024](https://arxiv.org/abs/2401.15884) | [24_corrective_rag.ipynb](https://github.com/kenneth-yap/all-agentic-architectures/blob/main/notebooks/24_corrective_rag.ipynb) |
+| **25** | **Self-RAG** | Retrieves on demand and keeps only docs whose reflection tokens pass. | Noisy Corpora, Grounded Answers | [Asai et al., 2024](https://arxiv.org/abs/2310.11511) | [25_self_rag.ipynb](https://github.com/kenneth-yap/all-agentic-architectures/blob/main/notebooks/25_self_rag.ipynb) |
+| **26** | **Adaptive RAG** | Classifies query complexity, then picks no / single / multi-step retrieval. | High-Volume Q&A, Cost Control | [Jeong et al., 2024](https://arxiv.org/abs/2403.14403) | [26_adaptive_rag.ipynb](https://github.com/kenneth-yap/all-agentic-architectures/blob/main/notebooks/26_adaptive_rag.ipynb) |
+| **27** | **GraphRAG** | Knowledge graph + community summaries answer corpus-wide 'theme' questions. | Global Sense-Making, Entity-Rich Corpora | [Edge et al., 2024](https://arxiv.org/abs/2404.16130) | [27_graph_rag.ipynb](https://github.com/kenneth-yap/all-agentic-architectures/blob/main/notebooks/27_graph_rag.ipynb) |
+| **28** | **Multi-Agent Debate** | Agents read each other's answers over rounds, then majority-vote. | Fact-Checking, Group Reasoning Studies | [Du et al., 2024](https://arxiv.org/abs/2305.14325) | [28_debate.ipynb](https://github.com/kenneth-yap/all-agentic-architectures/blob/main/notebooks/28_debate.ipynb) |
+| **29** | **Voyager** | Writes code skills once, retrieves and executes them on later tasks. | Recurring Computational Tasks | [Wang et al., 2023](https://arxiv.org/abs/2305.16291) | [29_voyager.ipynb](https://github.com/kenneth-yap/all-agentic-architectures/blob/main/notebooks/29_voyager.ipynb) |
+| **30** | **STORM** | Multi-perspective research → outline → long-form article. | Report & Wiki-Style Writing | [Shao et al., 2024](https://arxiv.org/abs/2402.14207) | [30_storm.ipynb](https://github.com/kenneth-yap/all-agentic-architectures/blob/main/notebooks/30_storm.ipynb) |
+| **31** | **MemGPT** | OS-style tiered memory: bounded context plus archival store, paged by the agent. | Long-Running Assistants | [Packer et al., 2023](https://arxiv.org/abs/2310.08560) | [31_memgpt.ipynb](https://github.com/kenneth-yap/all-agentic-architectures/blob/main/notebooks/31_memgpt.ipynb) |
+| **32** | **Constitutional AI** | Critiques output against written rules and revises until all pass. | Policy & Style Enforcement | [Bai et al., 2022](https://arxiv.org/abs/2212.08073) | [32_constitutional_ai.ipynb](https://github.com/kenneth-yap/all-agentic-architectures/blob/main/notebooks/32_constitutional_ai.ipynb) |
+| **33** | **SWE-Agent** | Reads, edits and tests code through a sandboxed file-system interface. | Automated Bug Fixing | [Yang et al., 2024](https://arxiv.org/abs/2405.15793) | [33_swe_agent.ipynb](https://github.com/kenneth-yap/all-agentic-architectures/blob/main/notebooks/33_swe_agent.ipynb) |
+| **34** | **Computer Use** | Screen → click/type loop with a hard Python safety gate on every action. | UI Automation, Safe Action Agents | [Anthropic, 2024](https://www.anthropic.com/news/3-5-models-and-computer-use) | [34_computer_use.ipynb](https://github.com/kenneth-yap/all-agentic-architectures/blob/main/notebooks/34_computer_use.ipynb) |
+| **35** | **Agent Workflow Memory** | Mines reusable step-by-step workflows from solved tasks and follows them next time. | Repetitive Task Families, Web Agents | [Wang et al., 2025](https://arxiv.org/abs/2409.07429) | [35_agent_workflow_memory.ipynb](https://github.com/kenneth-yap/all-agentic-architectures/blob/main/notebooks/35_agent_workflow_memory.ipynb) |
 
 Full citations, with notes on how each notebook departs from its source paper, are on every architecture page in [AgentAtlas](./agentatlas).
 
@@ -82,6 +100,16 @@ These architectures are critical for building agents that can be trusted in prod
 The final section explores how agents can improve over time and solve problems in novel ways.
 - The **Self-Improvement Loop** creates a mechanism for an agent to learn from feedback, analogous to RLHF.
 - **Cellular Automata** showcases how complex global behavior can emerge from simple, local rules, creating highly adaptive systems.
+- **Reflexion**, **Voyager** and **Agent Workflow Memory** (18, 29, 35) learn across runs by storing lessons, code skills and step-by-step recipes.
+
+#### Part 6: Retrieval-Augmented Generation (Notebooks 23–27)
+Five ways to decide *whether*, *what* and *how* to retrieve.
+- **Agentic RAG** lets the agent choose when to search; **Adaptive RAG** picks a strategy up front from query complexity.
+- **Corrective RAG** and **Self-RAG** grade retrieved documents before using them.
+- **GraphRAG** pre-computes community summaries so corpus-wide questions can be answered.
+
+#### Extended set (Notebooks 18–35)
+Notebooks 18–35 extend Parts 2–4 as well: **Self-Discover**, **Self-Consistency**, **LATS** and **MemGPT** (reasoning & memory), **Debate** and **STORM** (multi-agent), **Chain-of-Verification**, **Constitutional AI** and **Computer Use** (reliability & safety), and **SWE-Agent** (tool use).
 
 </details>
 
