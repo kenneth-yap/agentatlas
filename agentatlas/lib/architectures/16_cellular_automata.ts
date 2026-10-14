@@ -44,6 +44,11 @@ export const cellularAutomata: Architecture = {
     a4coordination: "None — cells update independently per tick; no inter-agent coordination or communication",
     a5output: "Optimal navigation path for robot — steepest descent through the stabilized distance field",
   },
+  references: [
+    { kind: "origin", authors: "von Neumann (ed. Burks)", year: 1966, title: "Theory of Self-Reproducing Automata", venue: "University of Illinois Press (book)", note: "Introduced cellular automata: a grid of cells, each updated by a simple local rule from its neighbours." },
+    { kind: "background", authors: "Gardner", year: 1970, title: "Mathematical Games: The fantastic combinations of John Conway's new solitaire game \"life\"", venue: "Scientific American 223(4)", url: "https://doi.org/10.1038/scientificamerican1070-120", note: "Popularised Conway's Game of Life — the classic demonstration of complex global behaviour emerging from local rules." },
+    { kind: "related", authors: "Lee", year: 1961, title: "An Algorithm for Path Connections and Its Applications", venue: "IRE Transactions on Electronic Computers", url: "https://doi.org/10.1109/TEC.1961.5219222", note: "Wave-propagation maze routing on a grid: distances flood outward from the target cell by cell — the same computation this notebook's update rule performs." },
+  ],
   nodes: [
     { id: "start", type: "start", label: "START",              x: 200, y: 20 },
     { id: "init",  type: "rule",  label: "Initialize\nGrid",   x: 200, y: 160, description: "Rule: set up warehouse grid with obstacles, shelves, packing station at value=0" },

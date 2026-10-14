@@ -3,6 +3,8 @@ import { architectures } from "@/lib/architectures";
 import { PART_LABELS, PART_COLORS } from "@/lib/types";
 
 const parts = [1, 2, 3, 4, 5] as const;
+const total = architectures.length;
+const nonLlmCount = architectures.filter((a) => !a.llmDriven).length;
 
 export default function Home() {
   return (
@@ -10,7 +12,7 @@ export default function Home() {
       {/* Hero */}
       <section className="max-w-5xl mx-auto px-6 pt-24 pb-20 text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-900/60 border border-indigo-700 text-indigo-300 text-xs font-medium mb-8">
-          17 patterns · 5 categories · interactive walkthroughs
+          {total} patterns · 5 categories · interactive walkthroughs
         </div>
         <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
           AgentAtlas
@@ -27,7 +29,7 @@ export default function Home() {
             href="/architectures"
             className="px-6 py-3 bg-indigo-600 hover:bg-indigo-500 rounded-xl font-semibold text-white transition-colors"
           >
-            Explore All 17 →
+            Explore All {total} →
           </Link>
           <Link
             href="/compare"
@@ -48,9 +50,9 @@ export default function Home() {
       <section className="max-w-5xl mx-auto px-6 pb-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { value: "17", label: "Architectures" },
+            { value: String(total), label: "Architectures" },
             { value: "5", label: "Categories" },
-            { value: "3", label: "Non-LLM Agents" },
+            { value: String(nonLlmCount), label: "Non-LLM Agents" },
             { value: "∞", label: "Things to learn" },
           ].map((s) => (
             <div key={s.label} className="bg-white/5 border border-white/10 rounded-2xl p-6 text-center">

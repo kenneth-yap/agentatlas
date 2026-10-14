@@ -44,6 +44,10 @@ export const metaController: Architecture = {
     { name: "Multi-Agent", insight: "Meta-Controller picks one specialist per task; Multi-Agent sends the task to all specialists in a sequential pipeline." },
     { name: "Blackboard", insight: "Meta-Controller dispatches once and is done; Blackboard's controller loops after each agent, re-reading shared state to decide who goes next." },
   ],
+  references: [
+    { kind: "background", authors: "Jacobs, Jordan, Nowlan & Hinton", year: 1991, title: "Adaptive Mixtures of Local Experts", venue: "Neural Computation 3(1)", url: "https://doi.org/10.1162/neco.1991.3.1.79", note: "The original gating-network idea: a learned router sends each input to the expert best suited to it. Here the router is an LLM prompt and the experts are specialist agents." },
+    { kind: "related", authors: "Shen et al.", year: 2023, title: "HuggingGPT: Solving AI Tasks with ChatGPT and its Friends in Hugging Face", venue: "NeurIPS 2023", url: "https://arxiv.org/abs/2303.17580", note: "An LLM controller reads a request and selects which expert model to run from their descriptions — the same dispatch step, applied to models instead of agents." },
+  ],
   nodes: [
     { id: "start",      type: "start",      label: "START",              x: 250, y: 20 },
     { id: "controller", type: "controller", label: "Meta\nController",   x: 250, y: 150, description: "Controller LLM: reads the query and picks the best specialist based on task analysis" },

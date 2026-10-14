@@ -43,6 +43,10 @@ export const reflection: Architecture = {
   comparedTo: [
     { name: "Self-Improvement (RLHF)", insight: "Reflection does one fixed Critique→Refine pass; RLHF loops until a quality score is met and stores approved outputs as training data for future runs." },
   ],
+  references: [
+    { kind: "origin", authors: "Madaan et al.", year: 2023, title: "Self-Refine: Iterative Refinement with Self-Feedback", venue: "NeurIPS 2023", url: "https://arxiv.org/abs/2303.17651", note: "Same generate → feedback → refine loop with one LLM playing all three roles. Self-Refine repeats until a stop condition; this notebook runs one fixed critique-and-refine pass." },
+    { kind: "related", authors: "Shinn et al.", year: 2023, title: "Reflexion: Language Agents with Verbal Reinforcement Learning", venue: "NeurIPS 2023", url: "https://arxiv.org/abs/2303.11366", note: "Extends reflection across attempts: verbal self-critiques are stored in memory and reused on the next try, rather than refining a single draft." },
+  ],
   nodes: [
     { id: "start",     type: "start", label: "START",            x: 200, y: 20 },
     { id: "generator", type: "llm",   label: "Generate\nDraft",  x: 200, y: 160, description: "LLM (expert Python programmer persona): writes first draft from the request" },

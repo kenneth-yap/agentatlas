@@ -44,6 +44,10 @@ export const multiAgent: Architecture = {
     { name: "Blackboard", insight: "Multi-Agent has a fixed pipeline; Blackboard's controller makes runtime routing decisions based on shared state — enabling conditional workflows." },
     { name: "Ensemble", insight: "Multi-Agent runs agents sequentially (each sees prior output); Ensemble runs all agents in parallel (no cross-contamination) then synthesizes." },
   ],
+  references: [
+    { kind: "related", authors: "Hong et al.", year: 2024, title: "MetaGPT: Meta Programming for a Multi-Agent Collaborative Framework", venue: "ICLR 2024", url: "https://arxiv.org/abs/2308.00352", note: "Role-specialised agents arranged as an assembly line following standard operating procedures — the closest published analogue to this fixed, hard-coded pipeline." },
+    { kind: "related", authors: "Wu et al.", year: 2023, title: "AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation", venue: "arXiv preprint", url: "https://arxiv.org/abs/2308.08155", note: "Agents coordinate by messaging each other in a conversation, rather than by a fixed execution order." },
+  ],
   nodes: [
     { id: "start",     type: "start", label: "START",              x: 200, y: 20 },
     { id: "news",      type: "llm",   label: "News\nAnalyst",      x: 200, y: 155, description: "LLM (News Analyst persona): searches for and summarizes recent news coverage" },

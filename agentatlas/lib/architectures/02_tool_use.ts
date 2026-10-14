@@ -43,6 +43,10 @@ export const toolUse: Architecture = {
   comparedTo: [
     { name: "ReAct", insight: "Tool Use calls tools when needed and synthesizes; ReAct explicitly interleaves Thought→Action→Observation, making the reasoning trace visible in the scratchpad." },
   ],
+  references: [
+    { kind: "origin", authors: "Schick et al.", year: 2023, title: "Toolformer: Language Models Can Teach Themselves to Use Tools", venue: "NeurIPS 2023", url: "https://arxiv.org/abs/2302.04761", note: "Showed an LM can learn when to call an API and how to use the result. This notebook gets the same behaviour at inference time from native function calling instead of fine-tuning." },
+    { kind: "implementation", authors: "OpenAI", title: "Function calling (API guide)", venue: "Developer documentation", url: "https://platform.openai.com/docs/guides/function-calling", note: "The JSON-schema tool-definition interface that most LLM APIs (and LangChain's tool binding) now share." },
+  ],
   nodes: [
     { id: "start", type: "start", label: "START",           x: 200, y: 20 },
     { id: "agent", type: "llm",   label: "LLM\nAgent",      x: 200, y: 160, description: "LLM: decides whether to call a tool or answer directly from context" },

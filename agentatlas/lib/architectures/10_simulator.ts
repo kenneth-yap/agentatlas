@@ -44,6 +44,10 @@ export const simulator: Architecture = {
     { name: "Dry-Run Harness", insight: "Simulator uses automated risk analysis (GBM + LLM risk manager) to make the go/no-go decision; Dry-Run inserts a human approval gate — the human's judgment, not an algorithm, makes the final call." },
     { name: "Tree of Thoughts", insight: "Tree of Thoughts uses BFS with rule validation for deterministic correctness; Simulator uses stochastic GBM for probabilistic risk assessment of open-ended decisions." },
   ],
+  references: [
+    { kind: "related", authors: "Ha & Schmidhuber", year: 2018, title: "World Models", venue: "arXiv preprint", url: "https://arxiv.org/abs/1803.10122", note: "An agent learns an internal model of its environment and can rehearse inside it before acting. This notebook's simulator is hand-written (a stochastic price model), not learned." },
+    { kind: "related", authors: "Hao et al.", year: 2023, title: "Reasoning with Language Model is Planning with World Model", venue: "EMNLP 2023", url: "https://arxiv.org/abs/2305.14992", note: "RAP uses the LLM itself as the world model to predict the outcome of candidate actions, then searches over them (MCTS)." },
+  ],
   nodes: [
     { id: "start",    type: "start", label: "START",             x: 200, y: 20 },
     { id: "propose",  type: "llm",   label: "Propose\nAction",   x: 200, y: 160, description: "LLM: analyst proposes a high-level trading strategy" },

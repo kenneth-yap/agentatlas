@@ -43,6 +43,11 @@ export const episodicSemantic: Architecture = {
   comparedTo: [
     { name: "Graph Memory", insight: "Episodic+Semantic uses FAISS for episodic recall + Neo4j for structured facts; Graph Memory uses Neo4j alone as the primary reasoning substrate for multi-hop traversal over pre-ingested documents." },
   ],
+  references: [
+    { kind: "origin", authors: "Tulving", year: 1972, title: "Episodic and semantic memory", venue: "In Tulving & Donaldson (eds.), Organization of Memory, Academic Press, pp. 381–403", note: "The cognitive-psychology distinction this architecture is named after: memory of specific experiences (episodic) versus general facts (semantic)." },
+    { kind: "related", authors: "Park et al.", year: 2023, title: "Generative Agents: Interactive Simulacra of Human Behavior", venue: "UIST 2023", url: "https://arxiv.org/abs/2304.03442", note: "LLM agents keep a natural-language memory stream of experiences and retrieve from it to plan — an episodic store like this notebook's vector index." },
+    { kind: "background", authors: "Sumers et al.", year: 2024, title: "Cognitive Architectures for Language Agents (CoALA)", venue: "TMLR", url: "https://arxiv.org/abs/2309.02427", note: "A framework that maps working, episodic, semantic and procedural memory onto LLM agents — useful vocabulary for comparing the memory designs in this atlas." },
+  ],
   nodes: [
     { id: "start",    type: "start",  label: "START",            x: 200, y: 20 },
     { id: "retrieve", type: "memory", label: "Retrieve\nMemory", x: 200, y: 160, description: "Memory: queries FAISS (similarity) and Neo4j (Cypher) with the current input" },

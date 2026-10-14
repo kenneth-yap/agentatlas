@@ -44,6 +44,10 @@ export const blackboard: Architecture = {
     { name: "Multi-Agent", insight: "Multi-Agent has a fixed pipeline; Blackboard's controller makes runtime routing decisions based on what's already in the shared state — enabling adaptive workflows." },
     { name: "Meta-Controller", insight: "Meta-Controller dispatches once and is done; Blackboard's controller loops after each agent, re-reading the blackboard to decide who goes next." },
   ],
+  references: [
+    { kind: "origin", authors: "Erman, Hayes-Roth, Lesser & Reddy", year: 1980, title: "The Hearsay-II Speech-Understanding System: Integrating Knowledge to Resolve Uncertainty", venue: "ACM Computing Surveys 12(2)", url: "https://doi.org/10.1145/356810.356816", note: "The first blackboard system: independent knowledge sources read and write hypotheses on a shared global structure, with a scheduler deciding which runs next. This notebook's LLM controller plays the scheduler role." },
+    { kind: "background", authors: "Nii", year: 1986, title: "Blackboard Systems, Part One: The Blackboard Model of Problem Solving and the Evolution of Blackboard Architectures", venue: "AI Magazine 7(2)", url: "https://doi.org/10.1609/aimag.v7i2.537", note: "The standard survey defining the blackboard model's three parts: knowledge sources, blackboard, control." },
+  ],
   nodes: [
     { id: "start",      type: "start",      label: "START",             x: 250, y: 20 },
     { id: "controller", type: "controller", label: "Controller",        x: 250, y: 150, description: "Controller LLM: reads the blackboard and decides which agent to activate next" },

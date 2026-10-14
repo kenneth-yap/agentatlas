@@ -44,6 +44,9 @@ export const react: Architecture = {
     { name: "Tool Use", insight: "ReAct makes the reasoning chain explicit (Thought:) while Tool Use just calls tools when needed. ReAct is interpretable; Tool Use is more token-efficient." },
     { name: "Planning", insight: "ReAct is reactive — it decides the next step after each observation. Planning creates the full step list upfront before any action." },
   ],
+  references: [
+    { kind: "origin", authors: "Yao et al.", year: 2023, title: "ReAct: Synergizing Reasoning and Acting in Language Models", venue: "ICLR 2023", url: "https://arxiv.org/abs/2210.03629", note: "Introduced the interleaved Thought → Action → Observation loop this notebook implements." },
+  ],
   nodes: [
     { id: "start", type: "start", label: "START",           x: 200, y: 20 },
     { id: "agent", type: "llm",   label: "ReAct\nReasoner", x: 200, y: 160, description: "LLM: reasons about what to do next based on all prior observations in the scratchpad" },

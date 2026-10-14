@@ -53,6 +53,23 @@ export interface ComparedToItem {
   insight: string;
 }
 
+// How a source relates to the architecture:
+//   origin         – the work that introduced this pattern
+//   related        – a close variant or a paper this implementation borrows from
+//   background     – foundational theory the pattern rests on
+//   implementation – framework docs / tutorials the code follows
+export type ReferenceKind = "origin" | "related" | "background" | "implementation";
+
+export interface Reference {
+  kind: ReferenceKind;
+  authors: string;      // short form, e.g. "Yao et al."
+  year?: number;        // omitted for living docs
+  title: string;
+  venue?: string;       // e.g. "ICLR 2023", "ACM Computing Surveys 12(2)"
+  url?: string;         // arXiv / DOI / docs link; omitted for print-only books
+  note?: string;        // how this notebook's implementation relates to the source
+}
+
 export interface A1A5Profile {
   a1input: string;
   a2decision: string;
@@ -81,6 +98,7 @@ export interface Architecture {
   strengths: string[];
   weaknesses: string[];
   comparedTo?: ComparedToItem[];
+  references: Reference[];
   nodes: FlowNode[];
   edges: FlowEdge[];
   executionTrace: TraceStep[];

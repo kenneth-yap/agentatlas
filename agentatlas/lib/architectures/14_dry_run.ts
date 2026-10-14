@@ -44,6 +44,9 @@ export const dryRun: Architecture = {
     a4coordination: "Human approval gate — human sees exact dry-run preview and decides approve or reject (mandatory, unconditional)",
     a5output: "Live action execution (publish/send) on approval, or rejection log on rejection",
   },
+  references: [
+    { kind: "related", authors: "Ruan et al.", year: 2024, title: "Identifying the Risks of LM Agents with an LM-Emulated Sandbox (ToolEmu)", venue: "ICLR 2024", url: "https://arxiv.org/abs/2309.15817", note: "Emulates tool execution with an LM so risky agent actions are caught before they touch real systems — an automated cousin of this human-gated dry run." },
+  ],
   nodes: [
     { id: "start",   type: "start",  label: "START",         x: 200, y: 20 },
     { id: "propose", type: "llm",    label: "Propose\nPost", x: 200, y: 160, description: "LLM: writes the social media post based on the brief" },

@@ -44,6 +44,10 @@ export const pev: Architecture = {
     { name: "Planning", insight: "Planning passes failed steps to the synthesizer unchanged; PEV catches failures at the verifier and triggers a smarter re-plan with failure context." },
     { name: "Reflection", insight: "Reflection critiques output quality after generation; PEV verifies execution success after each tool call — different stages, different failure modes." },
   ],
+  references: [
+    { kind: "related", authors: "Wang et al.", year: 2023, title: "Plan-and-Solve Prompting: Improving Zero-Shot Chain-of-Thought Reasoning by Large Language Models", venue: "ACL 2023", url: "https://aclanthology.org/2023.acl-long.147/", note: "Source of the plan-then-execute half of the pattern." },
+    { kind: "related", authors: "Lightman et al.", year: 2024, title: "Let's Verify Step by Step", venue: "ICLR 2024", url: "https://arxiv.org/abs/2305.20050", note: "Found that checking each intermediate step beats judging only the final answer. Lightman et al. train a process reward model; here the per-step verifier is an LLM prompt that inspects tool output." },
+  ],
   nodes: [
     { id: "start",       type: "start",  label: "START",       x: 200, y: 20 },
     { id: "planner",     type: "llm",    label: "Planner",     x: 200, y: 160, description: "LLM: creates the step list; re-plans with failure context if triggered" },
