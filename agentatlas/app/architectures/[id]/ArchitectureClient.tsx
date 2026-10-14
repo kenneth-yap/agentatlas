@@ -4,6 +4,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { getArchitecture, architectures } from "@/lib/architectures";
 import { PART_LABELS, PART_COLORS } from "@/lib/types";
+import { REFERENCE_KIND_LABELS, originReference, sortReferences } from "@/lib/citations";
 import StepController from "@/components/StepController";
 import CodePanel from "@/components/CodePanel";
 
@@ -245,6 +246,41 @@ export default function ArchitectureClient({ arch }: { arch: NonNullable<ReturnT
                 </div>
               ))}
             </div>
+          </div>
+        )}
+
+        {/* Sources */}
+        {arch.references.length > 0 && (
+          <div className="mb-8">
+            <h2 className="text-lg font-bold text-slate-800 mb-1">Sources & Further Reading</h2>
+            {!originReference(arch) && (
+              <p className="text-xs text-slate-500 mb-3">
+                No single originating paper — this pattern combines ideas from the works below.
+              </p>
+            )}
+            <ol className="space-y-3 mt-3">
+              {sortReferences(arch.references).map((ref, i) => (
+                <li key={i} className="bg-white rounded-xl border border-slate-200 p-4 flex gap-4 items-start">
+                  <span className="flex-shrink-0 inline-block text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-600 px-2 py-1 rounded-lg w-28 text-center">
+                    {REFERENCE_KIND_LABELS[ref.kind]}
+                  </span>
+                  <div className="text-sm">
+                    <div className="text-slate-800">
+                      {ref.authors}{ref.year && ` (${ref.year})`}.{" "}
+                      {ref.url ? (
+                        <a href={ref.url} target="_blank" rel="noopener noreferrer" className="font-semibold text-indigo-700 hover:underline">
+                          {ref.title}
+                        </a>
+                      ) : (
+                        <span className="font-semibold">{ref.title}</span>
+                      )}
+                      {ref.venue && <span className="text-slate-500 italic">. {ref.venue}</span>}
+                    </div>
+                    {ref.note && <p className="text-xs text-slate-500 leading-relaxed mt-1">{ref.note}</p>}
+                  </div>
+                </li>
+              ))}
+            </ol>
           </div>
         )}
 

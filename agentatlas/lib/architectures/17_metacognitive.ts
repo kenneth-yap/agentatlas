@@ -44,6 +44,10 @@ export const metacognitive: Architecture = {
     a4coordination: "Confidence-based routing to tool (medium confidence), human expert (low confidence), or direct reasoning (high confidence)",
     a5output: "Direct response, tool-augmented answer, or human escalation — matched to the agent's actual capability",
   },
+  references: [
+    { kind: "background", authors: "Flavell", year: 1979, title: "Metacognition and cognitive monitoring: A new area of cognitive-developmental inquiry", venue: "American Psychologist 34(10)", url: "https://doi.org/10.1037/0003-066X.34.10.906", note: "Coined metacognition as 'knowledge about one's own cognition' — the self-model this agent consults before acting." },
+    { kind: "related", authors: "Kadavath et al.", year: 2022, title: "Language Models (Mostly) Know What They Know", venue: "arXiv preprint", url: "https://arxiv.org/abs/2207.05221", note: "Shows LLMs can estimate whether they know an answer (P(IK)) — the empirical basis for letting an agent judge its own competence and escalate." },
+  ],
   nodes: [
     { id: "start",     type: "start",      label: "START",               x: 250, y: 20 },
     { id: "analyze",   type: "llm",        label: "Metacognitive\nAnalysis",x: 250, y: 150, description: "LLM: reads self-model against query; produces strategy + confidence score" },

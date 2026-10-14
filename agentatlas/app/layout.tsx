@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Link from "next/link";
+import { architectures } from "@/lib/architectures";
 
 export const metadata: Metadata = {
   title: "AgentAtlas — Interactive Agentic Architectures",
-  description: "17 agentic architecture patterns explained with interactive flow diagrams, real code, and step-by-step walkthroughs.",
+  description: `${architectures.length} agentic architecture patterns explained with interactive flow diagrams, real code, and step-by-step walkthroughs.`,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

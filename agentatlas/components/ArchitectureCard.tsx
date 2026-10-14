@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
-import { Architecture, PART_LABELS, PART_COLORS } from "@/lib/types";
+import { Architecture, PART_COLORS } from "@/lib/types";
+import { originReference, shortCitation } from "@/lib/citations";
 
 interface Props {
   arch: Architecture;
@@ -23,6 +24,7 @@ const LOOP_LABELS: Record<string, string> = {
 
 export default function ArchitectureCard({ arch }: Props) {
   const partColor = PART_COLORS[arch.part];
+  const origin = originReference(arch);
 
   return (
     <Link href={`/architectures/${arch.id}`}>
@@ -42,6 +44,10 @@ export default function ArchitectureCard({ arch }: Props) {
             {arch.name}
           </h3>
           <p className="text-xs text-slate-500 mt-0.5">{arch.tagline}</p>
+          {/* Plain text, not a link: the whole card is already an <a>, and nested anchors are invalid HTML */}
+          {origin && (
+            <p className="text-[11px] text-slate-400 italic mt-1">📄 {shortCitation(origin)}</p>
+          )}
         </div>
 
         <div className="flex flex-wrap gap-1.5 mt-auto pt-2">

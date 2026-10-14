@@ -44,6 +44,11 @@ export const planning: Architecture = {
     { name: "ReAct", insight: "Planning creates the full step list upfront; ReAct decides the next step reactively after each observation." },
     { name: "PEV", insight: "Planning has no verification loop — a failed step is passed to the synthesizer. PEV adds a dedicated verifier that catches failures and triggers a smarter re-plan." },
   ],
+  references: [
+    { kind: "origin", authors: "Wang et al.", year: 2023, title: "Plan-and-Solve Prompting: Improving Zero-Shot Chain-of-Thought Reasoning by Large Language Models", venue: "ACL 2023", url: "https://aclanthology.org/2023.acl-long.147/", note: "Devise a plan of sub-tasks first, then carry them out. Plan-and-Solve does both inside one prompt; this notebook splits planner and executor into separate graph nodes." },
+    { kind: "related", authors: "Xu et al.", year: 2023, title: "ReWOO: Decoupling Reasoning from Observations for Efficient Augmented Language Models", venue: "arXiv preprint", url: "https://arxiv.org/abs/2305.18323", note: "Planner writes the whole tool plan before any tool runs (Planner → Worker → Solver) — the closest paper to 'plan everything upfront', and it measures the token savings versus ReAct." },
+    { kind: "implementation", authors: "LangChain", title: "Plan-and-Execute (LangGraph tutorial)", venue: "LangGraph documentation", url: "https://langchain-ai.github.io/langgraph/tutorials/plan-and-execute/plan-and-execute/" },
+  ],
   nodes: [
     { id: "start",       type: "start", label: "START",       x: 200, y: 20 },
     { id: "planner",     type: "llm",   label: "Planner",     x: 200, y: 160, description: "LLM: creates the complete step list before any execution starts" },

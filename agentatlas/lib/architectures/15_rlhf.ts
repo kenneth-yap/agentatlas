@@ -44,6 +44,11 @@ export const rlhf: Architecture = {
     a4coordination: "None — single-agent; critic is an internal quality gate, not a separate agent",
     a5output: "Approved output stored to Gold Memory and returned to user",
   },
+  references: [
+    { kind: "background", authors: "Christiano et al.", year: 2017, title: "Deep Reinforcement Learning from Human Preferences", venue: "NeurIPS 2017", url: "https://arxiv.org/abs/1706.03741", note: "Origin of learning from human preference feedback. Note: this notebook borrows the feedback idea but does not train anything — no reward model, no policy update. Improvement comes from storing approved outputs as few-shot examples." },
+    { kind: "background", authors: "Ouyang et al.", year: 2022, title: "Training language models to follow instructions with human feedback (InstructGPT)", venue: "NeurIPS 2022", url: "https://arxiv.org/abs/2203.02155", note: "The RLHF recipe (demonstrations → reward model → PPO) used for modern chat models." },
+    { kind: "related", authors: "Madaan et al.", year: 2023, title: "Self-Refine: Iterative Refinement with Self-Feedback", venue: "NeurIPS 2023", url: "https://arxiv.org/abs/2303.17651", note: "The critique → revise loop with a quality gate is Self-Refine; the persistent archive of approved outputs is this notebook's addition." },
+  ],
   nodes: [
     { id: "start",    type: "start",  label: "START",             x: 200, y: 20 },
     { id: "generate", type: "llm",    label: "Generate\nDraft",   x: 200, y: 160, description: "LLM: Junior Copywriter generates email, optionally using past approved examples" },

@@ -44,6 +44,10 @@ export const graphMemory: Architecture = {
     a4coordination: "None — single-agent pipeline; no inter-agent routing",
     a5output: "Natural language answer derived from multi-hop graph traversal results",
   },
+  references: [
+    { kind: "background", authors: "Hogan et al.", year: 2021, title: "Knowledge Graphs", venue: "ACM Computing Surveys 54(4)", url: "https://arxiv.org/abs/2003.02320", note: "Comprehensive survey of graph data models, query languages and reasoning over knowledge graphs." },
+    { kind: "related", authors: "Pan et al.", year: 2024, title: "Unifying Large Language Models and Knowledge Graphs: A Roadmap", venue: "IEEE TKDE 36(7)", url: "https://arxiv.org/abs/2306.08302", note: "Surveys ways to combine LLMs and KGs, including querying a KG at inference time for facts the model lacks — the role Text-to-Cypher plays here." },
+  ],
   nodes: [
     { id: "start",     type: "start",  label: "START",              x: 200, y: 20 },
     { id: "ingest",    type: "llm",    label: "Graph\nMaker Agent", x: 200, y: 160, description: "LLM: parses documents and extracts entity-relation triples into Neo4j" },

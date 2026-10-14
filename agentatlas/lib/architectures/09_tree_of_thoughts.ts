@@ -44,6 +44,9 @@ export const treeOfThoughts: Architecture = {
     { name: "Simulator", insight: "Tree of Thoughts uses BFS with rule validation for deterministic correctness; Simulator uses stochastic GBM for probabilistic risk assessment of open-ended decisions." },
     { name: "Cellular Automata", insight: "Both are LLM-free search algorithms. Tree of Thoughts uses explicit BFS over symbolic states; Cellular Automata propagates a wave through a grid — same idea, different substrate." },
   ],
+  references: [
+    { kind: "origin", authors: "Yao et al.", year: 2023, title: "Tree of Thoughts: Deliberate Problem Solving with Large Language Models", venue: "NeurIPS 2023", url: "https://arxiv.org/abs/2305.10601", note: "In the paper an LLM both proposes candidate thoughts and scores them, with BFS/DFS over the tree. This notebook keeps the tree search but replaces LLM judgment with deterministic rule checks, which is why it makes no LLM calls." },
+  ],
   nodes: [
     { id: "start",  type: "start", label: "START",            x: 200, y: 20 },
     { id: "init",   type: "rule",  label: "Initialize\nPaths",x: 200, y: 160, description: "Rule: create initial puzzle state, set active_paths to [[initial_state]]" },

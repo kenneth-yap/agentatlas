@@ -44,6 +44,11 @@ export const ensemble: Architecture = {
     a4coordination: "Fan-out dispatcher sends task to all analysts simultaneously; CIO aggregates and synthesizes all outputs",
     a5output: "Synthesized investment recommendation with majority view, minority views, risks, and opportunities",
   },
+  references: [
+    { kind: "related", authors: "Wang et al.", year: 2023, title: "Self-Consistency Improves Chain of Thought Reasoning in Language Models", venue: "ICLR 2023", url: "https://arxiv.org/abs/2203.11171", note: "Sample several independent reasoning paths and take the majority answer. This notebook uses deliberately different analyst personas and an LLM synthesiser instead of a vote." },
+    { kind: "related", authors: "Li et al.", year: 2024, title: "More Agents Is All You Need", venue: "TMLR", url: "https://arxiv.org/abs/2402.05120", note: "Shows performance scales with the number of agents under simple sampling-and-voting." },
+    { kind: "background", authors: "Surowiecki", year: 2004, title: "The Wisdom of Crowds", venue: "Doubleday (book)", note: "Why aggregating independent, diverse judgments tends to beat any single expert." },
+  ],
   nodes: [
     { id: "start",    type: "start",      label: "START",           x: 250, y: 20 },
     { id: "dispatch", type: "controller", label: "Fan-Out\nDispatch",x: 250, y: 150, description: "Controller: LangGraph dispatches all three analysts simultaneously in parallel" },
