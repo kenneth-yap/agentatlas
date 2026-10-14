@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { architectures } from "@/lib/architectures";
-import { PART_LABELS, PART_COLORS } from "@/lib/types";
+import { PART_LABELS, PART_COLORS, PARTS } from "@/lib/types";
 
-const parts = [1, 2, 3, 4, 5] as const;
 const total = architectures.length;
 const nonLlmCount = architectures.filter((a) => !a.llmDriven).length;
 
@@ -12,7 +11,7 @@ export default function Home() {
       {/* Hero */}
       <section className="max-w-5xl mx-auto px-6 pt-24 pb-20 text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-900/60 border border-indigo-700 text-indigo-300 text-xs font-medium mb-8">
-          {total} patterns · 5 categories · interactive walkthroughs
+          {total} patterns · {PARTS.length} categories · interactive walkthroughs
         </div>
         <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
           AgentAtlas
@@ -51,7 +50,7 @@ export default function Home() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
             { value: String(total), label: "Architectures" },
-            { value: "5", label: "Categories" },
+            { value: String(PARTS.length), label: "Categories" },
             { value: String(nonLlmCount), label: "Non-LLM Agents" },
             { value: "∞", label: "Things to learn" },
           ].map((s) => (
@@ -67,7 +66,7 @@ export default function Home() {
       <section className="max-w-5xl mx-auto px-6 pb-24">
         <h2 className="text-2xl font-bold text-white mb-8 text-center">Learning Path</h2>
         <div className="space-y-3">
-          {parts.map((part) => {
+          {PARTS.map((part) => {
             const partArchs = architectures.filter((a) => a.part === part);
             const color = PART_COLORS[part];
             return (
